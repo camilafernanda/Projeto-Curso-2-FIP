@@ -1,6 +1,6 @@
 function realizarCalculo() {
     let valorInvestido = document.querySelector('#valor_investido').value;
-    let taxaJuros = document.querySelector('#taxa_juros').value;
+    let taxaJuros = document.querySelector('#taxa_juros').value / 100;
     let periodo = document.querySelector('#periodo').value;
 
     valorInvestido = Number(valorInvestido);
@@ -16,6 +16,8 @@ function realizarCalculo() {
     if (modeloTaxa == 'anual') {
         taxaJuros = taxaJuros / 12;
     }
+
+    validarValoresDigitados(valorInvestido, taxaJuros, periodo);
 
     let montante = calculaMontante(valorInvestido, taxaJuros, periodo);
     let jurosCompostos = calculaJurosCompostos(montante, valorInvestido);
@@ -65,4 +67,24 @@ function montarTabelaMensal(taxaJuros, periodo, valorInvestido) {
         cellJuros.innerHTML = 'R$ ' + jurosAtual;
         cellMontante.innerHTML = 'R$ ' + valorInvestido;
     }
+}
+
+function validarValoresDigitados(valorInvestido, taxaJuros, periodo) {
+    formulario = document.querySelector("formulario");
+
+    if (valorInvestido == 0) {
+        alert("Digite um valor para o valor investido");
+        formulario.valor_investido.focus();
+    }
+
+    if (taxaJuros == 0) {
+        alert("Digite um valor para a taxa de juros");
+        formulario.taxa_juros.focus();
+    } 
+
+    if (periodo == 0) {
+        alert("Informe um período diferente de zero e menor ou igual a 50 anos, ou 600 meses");
+        formulario.periodo.focus();
+    }
+
 }
