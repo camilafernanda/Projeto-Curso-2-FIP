@@ -48,14 +48,21 @@ function montarTabelaResumo(valorInvestido, jurosCompostos, montante) {
 }
 
 function montarTabelaMensal(taxaJuros, periodo, valorInvestido) {
+    let tabela = document.querySelector('#tabela_resultados tbody');
+    tabela.innerHTML = "";
     
     for (let i = 1; i <= periodo; i++) {
-
         let jurosAtual = valorInvestido * taxaJuros;
         valorInvestido += jurosAtual;
 
-        console.log(i);
-        console.log(jurosAtual);
-        console.log(valorInvestido);
+        let linha = tabela.insertRow(-1);
+
+        let cellPeriodo = linha.insertCell();
+        let cellJuros = linha.insertCell();
+        let cellMontante = linha.insertCell();
+
+        cellPeriodo.innerHTML = i;
+        cellJuros.innerHTML = 'R$ ' + jurosAtual;
+        cellMontante.innerHTML = 'R$ ' + valorInvestido;
     }
 }
