@@ -17,11 +17,17 @@ function realizarCalculo() {
         taxaJuros = taxaJuros / 12;
     }
 
-    let resumoValorInvestido = document.querySelector('#total_investido');
-    resumoValorInvestido.textContent = 'R$ ' + parseFloat(valorInvestido.toFixed(2)).toLocaleString('PT');
-
     let montante = valorInvestido * ((1 + taxaJuros) ** periodo);
     let jurosCompostos = montante - valorInvestido;
+
+    montarTabelaResumo(valorInvestido, jurosCompostos, montante);
+
+}
+
+function montarTabelaResumo(valorInvestido, jurosCompostos, montante) {
+
+    let resumoValorInvestido = document.querySelector('#total_investido');
+    resumoValorInvestido.textContent = 'R$ ' + parseFloat(valorInvestido.toFixed(2)).toLocaleString('PT');
 
     let resumoTotalJuros = document.querySelector('#total_juros');
     resumoTotalJuros.textContent = 'R$ ' + parseFloat(jurosCompostos.toFixed(2)).toLocaleString('PT');
