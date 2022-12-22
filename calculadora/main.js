@@ -18,7 +18,7 @@ function realizarCalculo() {
     }
 
     let montante = calculaMontante(valorInvestido, taxaJuros, periodo);
-    let jurosCompostos = montante - valorInvestido;
+    let jurosCompostos = calculaJurosCompostos(montante, valorInvestido);
 
     montarTabelaResumo(valorInvestido, jurosCompostos, montante);
 
@@ -27,6 +27,11 @@ function realizarCalculo() {
 function calculaMontante(valorInvestido, taxa, periodo) {
     let montante = valorInvestido * ((1 + taxa) ** periodo);
     return montante;
+}
+
+function calculaJurosCompostos(montante, valorInvestido) {
+    let jurosCompostos = montante - valorInvestido;
+    return jurosCompostos;
 }
 
 function montarTabelaResumo(valorInvestido, jurosCompostos, montante) {
