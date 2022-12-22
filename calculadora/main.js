@@ -75,19 +75,19 @@ function montarTabelaMensal(taxaJuros, periodo, valorInvestido) {
 function validarValoresDigitados(valorInvestido, taxaJuros, periodo) {
     formulario = document.querySelector("formulario");
 
-    if (valorInvestido == 0) {
+    if (valorInvestido == 0 || isNaN(valorInvestido)) {
         alert("Digite um valor para o valor investido");
         formulario.valor_investido.focus();
         return false;
     }
 
-    if (taxaJuros == 0) {
+    if (taxaJuros == 0 || isNaN(taxaJuros)) {
         alert("Digite um valor para a taxa de juros");
         formulario.taxa_juros.focus();
         return false;
     } 
 
-    if (periodo == 0) {
+    if (periodo == 0 || isNaN(periodo)) {
         alert("Informe um período diferente de zero e menor ou igual a 50 anos, ou 600 meses");
         formulario.periodo.focus();
         return false;
