@@ -21,6 +21,7 @@ function realizarCalculo() {
     let jurosCompostos = calculaJurosCompostos(montante, valorInvestido);
 
     montarTabelaResumo(valorInvestido, jurosCompostos, montante);
+    montarTabelaMensal(taxaJuros, periodo, valorInvestido);
 
 }
 
@@ -44,4 +45,12 @@ function montarTabelaResumo(valorInvestido, jurosCompostos, montante) {
 
     let resumoTotalMontante = document.querySelector('#total');
     resumoTotalMontante.textContent = 'R$ ' + parseFloat(montante.toFixed(2)).toLocaleString('PT');
+}
+
+function montarTabelaMensal(taxaJuros, periodo, valorInvestido) {
+    
+    for (let i = 1; i <= periodo; i++) {
+
+        console.log(i);
+    }
 }
