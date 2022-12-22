@@ -87,7 +87,7 @@ function validarValoresDigitados(valorInvestido, taxaJuros, periodo) {
         return false;
     } 
 
-    if (periodo == 0 || isNaN(periodo)) {
+    if (periodo == 0 || isNaN(periodo) || periodo > 600) {
         alert("Informe um período diferente de zero e menor ou igual a 50 anos, ou 600 meses");
         formulario.periodo.focus();
         return false;
