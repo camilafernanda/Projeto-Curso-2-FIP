@@ -51,6 +51,11 @@ function montarTabelaMensal(taxaJuros, periodo, valorInvestido) {
     
     for (let i = 1; i <= periodo; i++) {
 
+        let jurosAtual = valorInvestido * taxaJuros;
+        valorInvestido += jurosAtual;
+
         console.log(i);
+        console.log(jurosAtual);
+        console.log(valorInvestido);
     }
 }
