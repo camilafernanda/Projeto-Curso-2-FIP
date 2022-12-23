@@ -30,8 +30,8 @@ function realizarCalculo() {
 
 }
 
-function calculaMontante(valorInvestido, taxa, periodo) {
-    let montante = valorInvestido * ((1 + taxa) ** periodo);
+function calculaMontante(valorInvestido, taxaJuros, periodo) {
+    let montante = valorInvestido * ((1 + taxaJuros) ** periodo);
     return montante;
 }
 
@@ -81,8 +81,8 @@ function validarValoresDigitados(valorInvestido, taxaJuros, periodo) {
         return false;
     }
 
-    if (taxaJuros == 0 || isNaN(taxaJuros)) {
-        alert("Digite um valor para a taxa de juros");
+    if (taxaJuros == 0 || isNaN(taxaJuros) || taxaJuros > 50) {
+        alert("Informe um período diferente de zero e menor ou igual a 5000%");
         formulario.taxa_juros.focus();
         return false;
     } 
